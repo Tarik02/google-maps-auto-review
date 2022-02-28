@@ -1,0 +1,33 @@
+{
+  "name": "Google Maps Auto Review",
+  "minimum_chrome_version": "93",
+  "background": {
+    "service_worker": "background.bundle.js"
+  },
+  "action": {},
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://google.com/*",
+        "https://www.google.com/*",
+        "https://google.com.ua/*",
+        "https://www.google.com.ua/*"
+      ],
+      "js": ["content.bundle.js"]
+    },
+    {
+      "matches": [
+        "https://docs.google.com/*"
+      ],
+      "js": ["content-files.bundle.js"],
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "manifest_version": 3
+}
